@@ -23,7 +23,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
         (client.channels.cache.get(reaction.message.channelId) as TextChannel).messages.fetch(
             reaction.message.id).then(
                 message => (client.channels.cache.get('1029104035531337728') as TextChannel ).send({
-                    content: message.content + "  -- starred by @" + user.username, 
+                    content: message.content + "  -- starred by @" + user.username + " -- jump to original: "+ message.url, 
                     embeds: message.embeds,
                     files: [{attachment: (message.attachments.at(0) as Attachment).proxyURL}]}))
     }
